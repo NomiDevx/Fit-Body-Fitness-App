@@ -1,0 +1,38 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # Turn off these specific warnings
+    unused_element: ignore
+    unused_local_variable: ignore
+    dead_code: ignore
+    unnecessary_null_comparison: ignore
+    unnecessary_this: ignore
+    prefer_const_constructors: ignore
+    prefer_const_constructors_in_immutables: ignore
+    prefer_final_fields: ignore
+    prefer_final_locals: ignore
+
+linter:
+  rules:
+    # Disable stylistic rules that often trigger unnecessarily
+    always_specify_types: false
+    annotate_overrides: false
+    avoid_init_to_null: false
+    avoid_relative_lib_imports: false
+    camel_case_types: false
+    constant_identifier_names: false
+    empty_constructor_bodies: false
+    library_names: false
+    library_prefixes: false
+    non_constant_identifier_names: false
+    overridden_fields: false
+    prefer_typing_uninitialized_variables: false
+    slash_for_doc_comments: false
+    type_init_formals: false
+    unnecessary_brace_in_string_interps: false
+    unnecessary_getters_setters: false
+    unnecessary_new: false
+    unnecessary_null_in_if_null_operators: false
+    unnecessary_string_interpolations: false
+    use_function_type_syntax_for_parameters: false
