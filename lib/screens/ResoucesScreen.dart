@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Resoucesscreen extends StatefulWidget {
+  final int initialFilterIndex;
+
+  const Resoucesscreen({Key? key, this.initialFilterIndex = 0}) : super(key: key);
+
   @override
   State<Resoucesscreen> createState() => _ResoucesscreenState();
 }
@@ -14,7 +18,13 @@ class Resoucesscreen extends StatefulWidget {
 class _ResoucesscreenState extends State<Resoucesscreen> {
   int selectedIndex = -1;
 
-  int filterIndex = 0;
+  late int filterIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    filterIndex = widget.initialFilterIndex;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +48,7 @@ class _ResoucesscreenState extends State<Resoucesscreen> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).maybePop();
                         },
                         icon: const Icon(Icons.arrow_left),
                         color: AppColors.secondary,

@@ -60,9 +60,10 @@ class _SignupScreenState extends State<SignupScreen> {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Account created successfully')));
-      Navigator.pushReplacement(
+      Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => Mainnavbar()),
+        (Route<dynamic> route) => false,
       );
     } on FirebaseAuthException catch (e) {
       String message = 'Signup failed';

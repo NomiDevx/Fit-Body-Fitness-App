@@ -51,14 +51,17 @@ class _LoginscreenState extends State<Loginscreen> {
       
       // Redirect based on role
       if (role == 'admin') {
-        Navigator.pushReplacement(
+        Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Admindashborad()));
+          MaterialPageRoute(builder: (context) => Admindashborad()),
+          (Route<dynamic> route) => false,
+        );
        
       } else {
-        Navigator.pushReplacement(
+        Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => Mainnavbar()),
+          (Route<dynamic> route) => false,
         );
       }
       

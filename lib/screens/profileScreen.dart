@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fbfitnessapp/screens/HelpFaqScreen.dart';
+import 'package:fbfitnessapp/screens/loginScreen.dart';
 import 'package:fbfitnessapp/theme/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -86,10 +87,15 @@ class Profilescreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          onPressed: () {
-                            FirebaseAuth.instance.signOut();
-                            Navigator.of(context).pop(); // Close the bottom sheet
-                            Navigator.of(context).pop(); // Optionally pop the profile screen
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
+                            if (context.mounted) {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(builder: (context) => const Loginscreen()),
+                                (route) => false,
+                              );
+                            }
                           },
                           child: const Text('Yes,Logout'),
                         ),

@@ -7,6 +7,9 @@ import 'package:fbfitnessapp/screens/profileScreen.dart';
 import 'package:fbfitnessapp/theme/colors.dart';
 import 'package:fbfitnessapp/widgets/articleRecommendation.dart';
 import 'package:fbfitnessapp/widgets/workoutRecommendation.dart';
+import 'package:fbfitnessapp/screens/progressScreen.dart';
+import 'package:fbfitnessapp/screens/nutritionScreen.dart';
+import 'package:fbfitnessapp/screens/communityScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -238,13 +241,12 @@ class _DashboardscreenState extends State<Dashboardscreen> {
                       ),
                     ),
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder:
-                      //         (context) => Artileslayoutscreen(article: article),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Resoucesscreen(initialFilterIndex: 1),
+                        ),
+                      );
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -293,6 +295,15 @@ class _DashboardscreenState extends State<Dashboardscreen> {
             setState(() {
               selectedIndex = index;
             });
+            if (index == 0) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Resoucesscreen(initialFilterIndex: 0)));
+            } else if (index == 1) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProgressScreen()));
+            } else if (index == 2) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NutritionScreen()));
+            } else if (index == 3) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityScreen()));
+            }
           },
           icon: Icon(icon, color: color),
         ),
